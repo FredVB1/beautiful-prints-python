@@ -1,6 +1,6 @@
 import json
 from pprint import pprint
-from printNestedData import printNestedData, generateBeautifulString
+from printNestedData import printNestedData
 
 
 # Contains a dict, lists, tuples, a set and a frozenset.
@@ -34,7 +34,7 @@ dict_lists = {
         ("key_2_list1_tuple3_1", "key_2_list1_tuple3_2"),
         ("key_2_list1_tuple4_1", "key_2_list1_tuple4_2"),
         ("key_2_list1_tuple5_1", "key_2_list1_tuple5_2")
-    ],
+    ]
 }
 
 print("\nNested data out of a dict, lists and tuples, a set and a frozenset not formatted: ")
@@ -45,10 +45,10 @@ pprint(dict_lists)
 
 print("\nNested data out of a dict, lists and tuples, a set and a frozenset formatted using 'json.dumps':")
 try:
-    print(json.dumps(dict_lists))
+    print(json.dumps(dict_lists, indent=4))
 except Exception:
-    print("Json won't work with this example :(")
+    print("'json.dumps' won't work with this example :(")
 
 
-print("\nNested data out of a dict, lists, tuples, a set and a frozenset formatted using 'generateBeautifulString':")
+print("\nNested data out of a dict, lists, tuples, a set and a frozenset formatted using 'printNestedData':")
 printNestedData(dict_lists)
