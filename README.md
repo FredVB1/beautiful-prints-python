@@ -15,7 +15,8 @@ beautiful output using `printNestedData`:
     "key2": [1, 2, 3, 4]
 }
 ```
-Now this isn't quite json like, right? Json formatted using `json.dumps`, it would look like this:
+Now this isn't quite json like, right? Json formatted using [`json.dumps`](https://docs.python.org/3/library/json.html), 
+it would look like this:
 ```
 {
     "key1": [
@@ -32,8 +33,8 @@ Now this isn't quite json like, right? Json formatted using `json.dumps`, it wou
     ]
 }
 ```
-Yes. This is because the items from the nested data are only printed into the next line if either of their sub data is equally a nested 
-data type or the length of it exceeds the maximum items count per line.
+Yes. This is because the items from the nested data are only printed into the next line if either of their sub data is 
+equally a nested data type or the length of it exceeds the maximum items count per line.
 
 ### Currently supported nested data types
 * lists
@@ -43,7 +44,8 @@ data type or the length of it exceeds the maximum items count per line.
 * frozensets
 
 Note: There won't be raised an error if the used data type is not listed. It'll work, but it will probably be ugly. 
-Additionally, any not iterable sub data type such a `numpy.int64` is supported.
+Additionally, any not iterable sub data type such as
+[`numpy.int64`](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64) is supported.
 
 ## How to use it?
 You can either use `printNestedData` to directly write the formatted string to the current system output (console) or 
@@ -133,7 +135,7 @@ Output using `printNestedData`:
     ]
 }
 ```
-Now, what about `pprint`?
+Now, what about [`pprint`](https://docs.python.org/3/library/pprint.html)?
 Well, see for your self:
 ```
 {'key1': [[('key_1_list1_tuple1_1', 'key_1_list1_tuple1_2'),
@@ -157,17 +159,14 @@ Well, see for your self:
           ('key_2_list1_tuple4_1', 'key_2_list1_tuple4_2'),
           ('key_2_list1_tuple5_1', 'key_2_list1_tuple5_2')]}
 ```
-Above is the output when using `pprint` from the `pprint` module without changing any default values and passing 
-parameters. `printNestedData` simply works by default and is easy...
+Above is the output when using `pprint` from the [`pprint`](https://docs.python.org/3/library/pprint.html) module 
+without changing any default values and passing parameters. `printNestedData` simply works by default and is easy...
 
-And what about `json.dumps`?
-Well if you don't need tuples or sets or frozensets or any 'special' data type such as `numpy.int64` you can use it, 
-though have a look under [A quick example](#A quick example:) and decide for yourself what you find more beautiful.
+And what about [`json.dumps`](https://docs.python.org/3/library/json.html)?
+Well if you don't need tuples or sets or frozensets or any 'special' data type such as 
+[`numpy.int64`](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64) you can use it, though have a 
+look under [A quick example](#A quick example:) and decide for yourself what you find more beautiful.
 ¯\_(ツ)_/¯
 ```
 'json.dumps' won't work with this example :(
 ```
-
-
-
-
