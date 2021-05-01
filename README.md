@@ -48,6 +48,10 @@ Additionally, any not iterable sub data type such as
 [`numpy.int64`](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64) is supported.
 
 ## How to use it?
+### Installation
+Install it using ```pip install beautiful-prints```
+
+### Usage
 You can either use [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3)
 to directly write the formatted string to the current system output (console) or 
 [`generateBeautifulString`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L33)
