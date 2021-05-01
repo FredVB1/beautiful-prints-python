@@ -1,6 +1,25 @@
 # print-nested-data-python
 Beautiful prints for nested data (iterables) in python.
 
+## How to use it?
+### Installation
+Install it using ```pip install beautiful-prints```
+
+### Usage
+You can either use [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3)
+to directly write the formatted string to the current system output (console) or 
+[`generateBeautifulString`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L33)
+to get the formatted string and mess around with it:
+```
+beautifullyFormatedString = generateBeautifulString(yourNestedData)
+```
+Output it directly:
+```
+printNestedData(yourNestedData)
+```
+Both functions have the optional parameters `maxItemsPerLine` and `indent`. The former to set the maximum items per 
+line (default = 5) and the latter to set the indent (default = 4). 
+
 ## What's the concept?
 The concept is to print nested data in a json like format, but different ;D
 
@@ -46,25 +65,6 @@ equally a nested data type or the length of it exceeds the maximum items count p
 Note: There won't be raised an error if the used data type is not listed. It'll work, but it will probably be ugly. 
 Additionally, any not iterable sub data type such as
 [`numpy.int64`](https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64) is supported.
-
-## How to use it?
-### Installation
-Install it using ```pip install beautiful-prints```
-
-### Usage
-You can either use [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3)
-to directly write the formatted string to the current system output (console) or 
-[`generateBeautifulString`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L33)
-to get the formatted string and mess around with it:
-```
-beautifullyFormatedString = generateBeautifulString(yourNestedData)
-```
-Output it directly:
-```
-printNestedData(yourNestedData)
-```
-Both functions have the optional parameters `maxItemsPerLine` and `indent`. The former to set the maximum items per 
-line (default = 5) and the latter to set the indent (default = 4). 
 
 ## Examples
 An example using a Dict containing strings as keys and lists out of tuples, sets and frozensets as values
