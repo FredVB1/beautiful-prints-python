@@ -1,6 +1,6 @@
 
 
-def printNestedData(nestedData: any, maxItemsPerLine: int = 5, indent: int = 4):
+def beautifulPrint(nestedData: any, maxItemsPerLine: int = 5, indent: int = 4):
     """
     Outputs your passed [nestedData] in a beautiful way.
 
@@ -25,9 +25,9 @@ def printNestedData(nestedData: any, maxItemsPerLine: int = 5, indent: int = 4):
         maxItemsPerLine (int, optional): Maximum items allowed per line (default = 5).
         indent (int): Indentation with which the data should be formatted.
     """
-    import sys
+    from sys import stdout
 
-    sys.stdout.write(_generateBeautifulString(nestedData, indent, maxItemsPerLine))
+    stdout.write(_generateBeautifulString(nestedData, indent, maxItemsPerLine))
 
 
 def generateBeautifulString(nestedData: any, maxItemsPerLine: int = 5, indent: int = 4) -> str:
@@ -61,8 +61,7 @@ def generateBeautifulString(nestedData: any, maxItemsPerLine: int = 5, indent: i
 
 
 def _generateBeautifulString(
-        nestedData: any, indent: int,  maxItemsPerLine: int = 5, depth: int = 0, isDict: bool = False) -> str:
-
+        nestedData: any, indent: int, maxItemsPerLine: int = 5, depth: int = 0, isDict: bool = False) -> str:
     nestedDataTypes = {
         tuple: ("(", ")"),
         dict: ("{", "}"),
@@ -74,52 +73,49 @@ def _generateBeautifulString(
     spacing = " " * indent
     output = ""
 
+    def items(data: any, isDict: bool = False):
+        if type(data) in nestedDataTypes:
+            if hasattr(data, '__iter__'):
+                for subData in data:
+                    if type(subData) in nestedDataTypes or \
+                            (type(data) in nestedDataTypes and len(data) > maxItemsPerLine):
+                        return _generateBeautifulString(
+                            data,
+                            indent,
+                            maxItemsPerLine,
+                            depth=depth + 1,
+                            isDict=isDict
+                        ), True
+
+        return "", False
+
     for index, data in enumerate(nestedData):
         done = False
         if type(nestedData) == dict:
             if index == 0:
-                output += f"\n{spacing * depth}{nestedDataTypes[type(nestedData)][0]}"
+                output += (f"\n{spacing * depth}" if not isDict else " ") + \
+                          f"{nestedDataTypes[type(nestedData)][0]}"
             else:
                 output += ","
 
             output += f"""\n{spacing * (depth + 1)}""" \
-                      f""" {f'"{data}"' if type(data) == str else data}:"""
+                      f"""{f'"{data}"' if type(data) == str else data}:"""
 
-            if type(nestedData[data]) in nestedDataTypes:
-                if hasattr(nestedData[data], '__iter__'):
-                    for subData in nestedData[data]:
-                        if done is False:
-                            if type(subData) in nestedDataTypes or \
-                                    (type(nestedData[data]) in nestedDataTypes and len(nestedData[data]) > maxItemsPerLine):
-                                output += _generateBeautifulString(
-                                    nestedData[data],
-                                    indent,
-                                    maxItemsPerLine,
-                                    depth=depth + 1,
-                                    isDict=True
-                                )
-                                done = True
-                                break
+            subOutput, done = items(nestedData[data])
+            output += subOutput
 
             if done is False:
                 output += f""" {f'"{nestedData[data]}"' if type(nestedData[data]) == str else nestedData[data]}"""
 
         else:
             if index == 0:
-                output += (f"\n{spacing * depth}" if not isDict else f" ") + \
+                output += (f"\n{spacing * depth}" if not isDict else " ") + \
                           f"{nestedDataTypes[type(nestedData)][0]}"
             else:
                 output += ","
 
-            if type(data) in nestedDataTypes:
-                if hasattr(data, '__iter__'):
-                    for subData in data:
-                        if done is False:
-                            if type(subData) in nestedDataTypes or \
-                                    (type(data) in nestedDataTypes and len(data) > maxItemsPerLine):
-                                output += _generateBeautifulString(data, indent, maxItemsPerLine, depth=depth + 1)
-                                done = True
-                                break
+            subOutput, done = items(data)
+            output += subOutput
 
             if done is False:
                 output += f"""\n{spacing * (depth + 1)}""" \

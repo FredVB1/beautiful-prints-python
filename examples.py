@@ -1,6 +1,6 @@
 import json
 from pprint import pprint
-from printNestedData import printNestedData
+from beautiful_prints import beautifulPrint
 
 
 # Contains a dict, lists, tuples, a set and a frozenset.
@@ -51,4 +51,4 @@ except Exception:
 
 
 print("\nNested data out of a dict, lists, tuples, a set and a frozenset formatted using 'printNestedData':")
-printNestedData(dict_lists)
+beautifulPrint(dict_lists)
