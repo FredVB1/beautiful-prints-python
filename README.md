@@ -11,10 +11,14 @@ to directly write the formatted string to the current system output (console) or
 [`generateBeautifulString`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L33)
 to get the formatted string and mess around with it:
 ```
+from beautiful_prints import generateBeautifulString
+
 beautifullyFormatedString = generateBeautifulString(yourNestedData)
 ```
 Output it directly:
 ```
+from beautiful_prints import beautifulPrint
+
 beautifulPrint(yourNestedData)
 ```
 Both functions have the optional parameters `maxItemsPerLine` and `indent`. The former to set the maximum items per 
