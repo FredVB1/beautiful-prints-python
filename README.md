@@ -6,16 +6,16 @@ Beautiful prints for nested data (iterables) in python.
 Install it using ```pip install beautiful-prints```
 
 ### Usage
-You can either use [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3)
+You can either use [`beautifulPrint`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L3)
 to directly write the formatted string to the current system output (console) or 
-[`generateBeautifulString`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L33)
+[`generateBeautifulString`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L33)
 to get the formatted string and mess around with it:
 ```
 beautifullyFormatedString = generateBeautifulString(yourNestedData)
 ```
 Output it directly:
 ```
-printNestedData(yourNestedData)
+beautifulPrint(yourNestedData)
 ```
 Both functions have the optional parameters `maxItemsPerLine` and `indent`. The former to set the maximum items per 
 line (default = 5) and the latter to set the indent (default = 4). 
@@ -27,7 +27,7 @@ The concept is to print nested data in a json like format, but different ;D
 ```
 nestedData = {"key1": [1, 2, 3, 4], "key2": [1, 2, 3, 4]}
 ```
-beautiful output using [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3):
+beautiful output using [`beautifulPrint`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L3):
 ```
 {
     "key1": [1, 2, 3, 4], 
@@ -106,7 +106,7 @@ Output without formatting:
 ```
 {'key1': [[('key_1_list1_tuple1_1', 'key_1_list1_tuple1_2'), {'key_1_list1_tuple2_2', 'key_1_list1_tuple2_1'}, frozenset({'key_1_list1_tuple3_1', 'key_1_list1_tuple3_2'}), ('key_1_list1_tuple4_1', 'key_1_list1_tuple4_2'), ('key_1_list1_tuple5_1', 'key_1_list1_tuple5_2')], [('key_1_list2_tuple1_1', 'key_1_list2_tuple1_2'), ('key_1_list2_tuple2_1', 'key_1_list2_tuple2_2'), ('key_1_list2_tuple3_1', 'key_1_list2_tuple3_2'), ('key_1_list2_tuple4_1', 'key_1_list2_tuple4_2'), ('key_1_list2_tuple5_1', 'key_1_list2_tuple5_2')]], 'key2': [('key_2_list1_tuple1_1', 'key_2_list1_tuple1_2', 'key_2_list1_tuple1_3', 'key_2_list1_tuple1_4', 'key_2_list1_tuple1_5', 'key_2_list1_tuple1_6'), ('key_2_list1_tuple2_1', 'key_2_list1_tuple2_2'), ('key_2_list1_tuple3_1', 'key_2_list1_tuple3_2'), ('key_2_list1_tuple4_1', 'key_2_list1_tuple4_2'), ('key_2_list1_tuple5_1', 'key_2_list1_tuple5_2')]}
 ```
-Output using [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3):
+Output using [`beautifulPrint`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L3):
 ```
 {
      "key1": [
@@ -166,7 +166,7 @@ Well, see for your self:
           ('key_2_list1_tuple5_1', 'key_2_list1_tuple5_2')]}
 ```
 Above is the output when using `pprint` from the [`pprint`](https://docs.python.org/3/library/pprint.html) module 
-without changing any default values and passing parameters. [`printNestedData`](https://github.com/FredVB1/print-nested-data-python/blob/575e64bfd299774f87b05fb0eb7bb8342d04a326/printNestedData.py#L3)
+without changing any default values and passing parameters. [`beautifulPrint`](https://github.com/FredVB1/beautiful-prints-python/blob/9df65d6fb5b397b72305d1abff3ef3953e09e556/beautiful_prints.py#L3)
 simply works by default and is easy...
 
 And what about [`json.dumps`](https://docs.python.org/3/library/json.html)?
